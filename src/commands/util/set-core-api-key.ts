@@ -31,7 +31,9 @@ const command: Command = {
         try {
             const key = interaction.options.get("api-key").value;
 
-            if(!key.startsWith("ptlc_")) {
+            const regex = /^ptlc_[A-Za-z0-9]{43}$/;
+
+            if(!regex.test(key)) {
                 const error = new Discord.EmbedBuilder()
                     .setColor(client.config_embeds.error)
                     .setDescription(`${emoji.cross} Your API key is invalid!`)
