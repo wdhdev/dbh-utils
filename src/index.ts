@@ -25,7 +25,7 @@ const client = new ExtendedClient({
     presence: {
         activities: [
             {
-                name: "wdh.gg » !help",
+                name: "Managing servers » /help",
                 type: Discord.ActivityType.Custom
             }
         ],
