@@ -58,16 +58,16 @@ const command: Command = {
 
                     await data.save();
 
-                    const success = new Discord.EmbedBuilder()
+                    const set = new Discord.EmbedBuilder()
                         .setColor(client.config_embeds.default)
-                        .setDescription(`${emoji.tick} Your API key has been set!`)
+                        .setDescription(`${emoji.tick} Your core panel API key has been set!`)
 
-                    await interaction.editReply({ embeds: [success] });
+                    await interaction.editReply({ embeds: [set] });
                     return;
                 } else {
                     const error = new Discord.EmbedBuilder()
                         .setColor(client.config_embeds.error)
-                        .setDescription(`${emoji.cross} Your API key could not be verified!`)
+                        .setDescription(`${emoji.cross} Your core panel API key could not be verified!`)
                         .addFields (
                             { name: "Status Code", value: `**${res.status}** ${res.statusText}` },
                             { name: "Possible Reasons", value: `- You have provided an invalid API key\n- Your API key is IP restricted` }

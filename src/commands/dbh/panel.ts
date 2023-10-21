@@ -90,7 +90,7 @@ const command: Command = {
             if(!data || !data.public_panel_key) {
                 const error = new Discord.EmbedBuilder()
                     .setColor(client.config_embeds.error)
-                    .setDescription(`${emoji.cross} You have not set your API key! Run \`/set-public-api-key\` to set it.`)
+                    .setDescription(`${emoji.cross} You have not set your public panel API key! Run </set-api-key:${client.commandIds.get("set-api-key")}> to set it.`)
 
                 await interaction.editReply({ embeds: [error] });
                 return;
@@ -135,7 +135,7 @@ const command: Command = {
             let choices: any[] = [];
 
             const data = await API.findOne({ _id: interaction.user.id });
-            if(!data || !data.public_panel_key) return await interaction.respond(null);
+            if(!data || !data.public_panel_key) return await interaction.respond(choices);
 
             // Get servers from Pterodactyl API
             try {
