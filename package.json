@@ -1,0 +1,32 @@
+{
+  "name": "dbh-utils",
+  "version": "1.0.0",
+  "description": "Panel management commands for DanBot Hosting.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "npm run build && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wdhdev/dbh-utils.git"
+  },
+  "author": "William Harrison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wdhdev/dbh-utils/issues"
+  },
+  "homepage": "https://github.com/wdhdev/dbh-utils#readme",
+  "dependencies": {
+    "@sentry/node": "^7.74.1",
+    "axios": "^1.5.1",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "mongoose": "^7.6.3"
+  },
+  "devDependencies": {
+    "@sentry/types": "^7.73.0",
+    "@types/node": "^20.8.7",
+    "typescript": "^5.2.2"
+  }
+}
