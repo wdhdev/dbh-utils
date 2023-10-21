@@ -8,13 +8,13 @@ import { emojis as emoji, main } from "../../config";
 import API from "../../models/API";
 
 const command: Command = {
-    name: "core-panel",
-    description: "Manage a DBH core panel server.",
+    name: "panel",
+    description: "Manage a DBH public panel server.",
     options: [
         {
             type: 1,
             name: "kill",
-            description: "Kill a DBH core panel server.",
+            description: "Kill a DBH public panel server.",
             options: [
                 {
                     type: 3,
@@ -29,7 +29,7 @@ const command: Command = {
         {
             type: 1,
             name: "restart",
-            description: "Restart a DBH core panel server.",
+            description: "Restart a DBH public panel server.",
             options: [
                 {
                     type: 3,
@@ -44,7 +44,7 @@ const command: Command = {
         {
             type: 1,
             name: "start",
-            description: "Start a DBH core panel server.",
+            description: "Start a DBH public panel server.",
             options: [
                 {
                     type: 3,
@@ -59,7 +59,7 @@ const command: Command = {
         {
             type: 1,
             name: "stop",
-            description: "Stop a DBH core panel server.",
+            description: "Stop a DBH public panel server.",
             options: [
                 {
                     type: 3,
@@ -87,22 +87,22 @@ const command: Command = {
 
             const data = await API.findOne({ _id: interaction.user.id });
 
-            if(!data || !data.core_panel_key) {
+            if(!data || !data.public_panel_key) {
                 const error = new Discord.EmbedBuilder()
                     .setColor(client.config_embeds.error)
-                    .setDescription(`${emoji.cross} You have not set your API key! Run \`/set-core-api-key\` to set it.`)
+                    .setDescription(`${emoji.cross} You have not set your API key! Run \`/set-public-api-key\` to set it.`)
 
                 await interaction.editReply({ embeds: [error] });
                 return;
             }
 
             try {
-                const res = await axios.post(`https://${main.corePanel}/api/client/servers/${server}/power`, {
+                const res = await axios.post(`https://${main.publicPanel}/api/client/servers/${server}/power`, {
                     signal: type
                 }, {
                     headers: {
                         "Accept": "application/json",
-                        "Authorization": `Bearer ${data.core_panel_key}`,
+                        "Authorization": `Bearer ${data.public_panel_key}`,
                         "User-Agent": "DBH"
                     }
                 })
@@ -135,14 +135,14 @@ const command: Command = {
             let choices: any[] = [];
 
             const data = await API.findOne({ _id: interaction.user.id });
-            if(!data || !data.core_panel_key) return await interaction.respond(null);
+            if(!data || !data.public_panel_key) return await interaction.respond(null);
 
             // Get servers from Pterodactyl API
             try {
-                const res = await axios.get(`https://${main.corePanel}/api/client`, {
+                const res = await axios.get(`https://${main.publicPanel}/api/client`, {
                     headers: {
                         "Accept": "application/json",
-                        "Authorization": `Bearer ${data.core_panel_key}`,
+                        "Authorization": `Bearer ${data.public_panel_key}`,
                         "User-Agent": "DBH"
                     }
                 })

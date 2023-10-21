@@ -4,13 +4,12 @@ import * as Sentry from "@sentry/node";
 import Command from "./Command";
 import Event from "./Event";
 
-import { channels, embeds, main } from "../config";
+import { embeds, main } from "../config";
 
 export default class ExtendedClient extends Client {
     public buttons: Collection<string, any>;
     public commandIds: Collection<string, Snowflake>;
     public commands: Collection<string, Command>;
-    public config_channels: typeof channels;
     public config_embeds: typeof embeds;
     public config_main: typeof main;
     public events: Collection<string, Event>;

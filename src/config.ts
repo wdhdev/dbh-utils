@@ -1,9 +1,5 @@
 import { ColorResolvable, Snowflake } from "discord.js";
 
-const channels = {
-    github: "" as Snowflake
-}
-
 const embeds = {
     default: "#628FE3" as ColorResolvable,
     error: "#E74C3C" as ColorResolvable
@@ -21,18 +17,18 @@ const emojis = {
 
 const main = {
     corePanel: "ptero.core.danbot.host",
-    owner: "853158265466257448" as Snowflake
+    owner: "853158265466257448" as Snowflake,
+    privatePanel: "private.danbot.host",
+    publicPanel: "panel.danbot.host"
 }
 
 export {
-    channels,
     embeds,
     emojis,
     main
 }
 
 export default {
-    channels,
     embeds,
     emojis,
     main

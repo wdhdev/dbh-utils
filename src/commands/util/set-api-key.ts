@@ -8,13 +8,13 @@ import { emojis as emoji, main } from "../../config";
 import API from "../../models/API";
 
 const command: Command = {
-    name: "set-core-api-key",
-    description: "Set your API key for the core panel.",
+    name: "set-api-key",
+    description: "Set your API key for the public panel.",
     options: [
         {
             type: 3,
             name: "api-key",
-            description: "Your API key for the core panel.",
+            description: "Your API key for the public panel.",
             min_length: 48,
             max_length: 48,
             required: true
@@ -43,7 +43,7 @@ const command: Command = {
             }
 
             try {
-                const res = await axios.get(`https://${main.corePanel}/api/client/account`, {
+                const res = await axios.get(`https://${main.publicPanel}/api/client/account`, {
                     headers: {
                         "Accept": "application/json",
                         "Authorization": `Bearer ${key}`,
@@ -54,7 +54,7 @@ const command: Command = {
                 if(res.status === 200) {
                     // Save the API key to the database
                     const data = await API.findOne({ _id: interaction.user.id }) || new API({ _id: interaction.user.id });
-                    data.core_panel_key = key;
+                    data.public_panel_key = key;
 
                     await data.save();
 
@@ -82,7 +82,7 @@ const command: Command = {
                     .setDescription(`${emoji.cross} Your API key could not be verified!`)
                     .addFields (
                         { name: "Status Code", value: `**${err.response.status}** ${err.response.statusText}` },
-                        { name: "Possible Reasons", value: `- The core panel is down\n- You have provided an invalid API key\n- Your API key is IP restricted` }
+                        { name: "Possible Reasons", value: `- The public panel is down\n- You have provided an invalid API key\n- Your API key is IP restricted` }
                     )
 
                 await interaction.editReply({ embeds: [error] });

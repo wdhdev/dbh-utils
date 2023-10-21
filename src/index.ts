@@ -41,7 +41,6 @@ import database from "./util/database";
 database();
 
 // Configs
-client.config_channels = config.channels;
 client.config_embeds = config.embeds;
 client.config_main = config.main;
 
