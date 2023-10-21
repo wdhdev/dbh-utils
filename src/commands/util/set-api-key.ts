@@ -24,7 +24,7 @@ const command: Command = {
     botPermissions: [],
     cooldown: 60,
     enabled: true,
-    ownerOnly: true,
+    ownerOnly: false,
     deferReply: true,
     ephemeral: true,
     async execute(interaction: CommandInteraction & any, client: ExtendedClient, Discord: typeof import("discord.js")) {
