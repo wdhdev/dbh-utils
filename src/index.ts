@@ -13,19 +13,10 @@ import config from "./config";
 
 const client = new ExtendedClient({
     intents: 3276799,
-    partials: [
-        Discord.Partials.Channel,
-        Discord.Partials.GuildMember,
-        Discord.Partials.GuildScheduledEvent,
-        Discord.Partials.Message,
-        Discord.Partials.Reaction,
-        Discord.Partials.ThreadMember,
-        Discord.Partials.User
-    ],
     presence: {
         activities: [
             {
-                name: "Managing servers » /help",
+                name: "🔧 Managing servers",
                 type: Discord.ActivityType.Custom
             }
         ],
