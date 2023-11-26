@@ -1,6 +1,7 @@
 import Event from "../../classes/Event";
 import ExtendedClient from "../../classes/ExtendedClient";
 
+import { exec } from "child_process";
 import globalCommands from "../../scripts/global-commands";
 
 const event: Event = {
