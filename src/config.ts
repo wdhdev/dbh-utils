@@ -17,6 +17,7 @@ const emojis = {
 
 const main = {
     corePanel: "ptero.core.danbot.host",
+    developerPanel: "panel.danbot.dev",
     owner: "853158265466257448" as Snowflake,
     privatePanel: "private.danbot.host",
     publicPanel: "panel.danbot.host"
