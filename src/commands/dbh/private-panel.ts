@@ -103,7 +103,7 @@ const command: Command = {
                     headers: {
                         "Accept": "application/json",
                         "Authorization": `Bearer ${data.private_panel_key}`,
-                        "User-Agent": "DBH"
+                        "User-Agent": "william"
                     }
                 })
 
@@ -143,7 +143,7 @@ const command: Command = {
                     headers: {
                         "Accept": "application/json",
                         "Authorization": `Bearer ${data.private_panel_key}`,
-                        "User-Agent": "DBH"
+                        "User-Agent": "william"
                     }
                 })
 

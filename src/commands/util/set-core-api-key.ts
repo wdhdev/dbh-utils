@@ -47,7 +47,7 @@ const command: Command = {
                     headers: {
                         "Accept": "application/json",
                         "Authorization": `Bearer ${key}`,
-                        "User-Agent": "DBH"
+                        "User-Agent": "william"
                     }
                 })
 
